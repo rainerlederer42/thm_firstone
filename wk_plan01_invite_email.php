@@ -1,6 +1,9 @@
 <?php
-  require_once "mail.php";			// das steht bei Gandalf in 	E:\XAMPP\PHP\PEAR\  ==> Datei mail.php
-  require_once "Mail/mime.php";		// new 140111 for HTML Email  ---  auf Gandalf E: in \xampp\php\PEAR\Mail      
+  // require_once "mail.php";			// das steht bei Gandalf in 	E:\XAMPP\PHP\PEAR\  ==> Datei mail.php
+  require_once "pear_mail.php";		// hier im gleichen Verzeichnis. entsprechend umkopiert   140622 
+  
+  //require_once "Mail/mime.php";		// new 140111 for HTML Email  ---  auf Gandalf E: in \xampp\php\PEAR\Mail      
+  require_once "pear_mime.php";		// hier im gleichen Verzeichnis. entsprechend umkopiert   140622 
   
 ?>
 <?php
