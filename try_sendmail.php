@@ -1,4 +1,4 @@
-<?php>
+<?php
 include_once "wk_plan01_invite_email.php";
 
 $crea_vn = "Leihischof";
