@@ -71,7 +71,12 @@ require_once 'PEAR.php';
  * create all the different parts a mail can
  * consist of.
  */
-require_once 'Mail/mimePart.php';
+
+/**
+* Led 140621 geändert TUI   Linus
+* require_once 'Mail/mimePart.php';
+*/
+require_once 'mimePart.php';
 
 
 /**
