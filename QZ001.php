@@ -9,7 +9,7 @@
 	
 	
 	
-	<title>HIMobil Quiz</title>
+	<title>HAMI Quiz</title>
 	<!-- 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	
@@ -20,37 +20,185 @@
 	
 	<!--      das da wäre die Version JQM 1.1.1.  Upgedated auf 1.3.0 130228   --> 
 	<!--   <link rel="stylesheet" href="jquery.mobile-1.1.1.min.css" />	--> 
-	<link rel="stylesheet" href="jquery.mobile-1.3.0.min.css" />
 	
-	<link type="text/css" href="jquery-ui-1.10.0.custom.min.css" rel="stylesheet" />
 	
+	
+	
+	<!--  das muss noch überprüft werden. Ich sehe da gar nix von BS !!!!!     --> 
+	
+	<link rel="stylesheet" href="themes/Bootstrap.css">
+		
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+	
+	
+	
+	
+		
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		
 	<!-- ac = autocomplete --> 
 	<link rel="stylesheet" type="text/css" href="ac_style.css" />
+		
+
+
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+	<script type="text/javascript" src="ac_main.js"></script>	
 	
-	<!-- 
-	<script type="text/javascript" src="jquery-1.9.0.min.js"></script>
-									    jquery-1.9.0.min.js
-										
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
-	-->							        
 	
-	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="jquery-migrate-1.1.0.min.js"></script>
-	<script type="text/javascript" src="jquery-ui-1.10.0.custom.min.js"></script>
-	<script type="text/javascript" src="ac_main.js"></script>
 	
-	<!-- 
-	<script type="text/javascript" src="jquery.mobile-1.2.0.min.js"></script>
-	--> 
 	
-	<!--      das da wäre die Version JQM 1.1.1.  Upgedated auf 1.3.0 130228   --> 
-	<!-- <script type="text/javascript" src="jquery.mobile-1.1.1.min.js"></script>   --> 
-    <script type="text/javascript" src="jquery.mobile-1.3.0.min.js"></script>
+	
+	
+	
+	
 	
 	
 
 </head>
 <body>
+
+
+
+<!-- Checkbox ja ich erlaube due Speicherung  der Daten überwachen um Absende Submit Button zu aktivieren -->
+<!--  neuerdings unten im Code im Div dieser Page   --> 
+
+
+
+
+
+
+<!-- auf Betätigung des Buttons zum Abschicken der Kontakt-Nachricht reagieren -->
+    <script>
+        function onSuccess(data, status)
+        {
+            data = $.trim(data);
+            $("#contactnotification").text(data);
+        }
+  
+        function onError(data, status)
+        {
+            // handle an error
+        }       
+  
+        $(document).ready(function() {
+		    
+            $("li#bt_send_contact").click(function(){			
+ 
+				alert("bt_send_contact clicked");	
+				
+				location.href = "#confirm_contact";
+ 
+                var formData = $("#contactform").serialize();
+  
+                $.ajax({
+                    type: "POST",
+                    url: "send_qz_contact.php",
+                    cache: false,
+                    data: formData,
+                    success: onSuccess,
+                    error: onError
+                });  
+                return false;				
+				
+            });
+        });
+    </script>
+
+
+	
+
+
+
+
+
+
+
+<!-- auf Betätigung des Buttons zum Abschicken der Quiz-Tipps reagieren -->
+    <script>
+        function onSuccess(data, status)
+        {
+            data = $.trim(data);
+            $("#qznotification").text(data);
+        }
+  
+        function onError(data, status)
+        {
+            // handle an error
+        }       
+  
+        $(document).ready(function() {
+		    // $("#qzsubmit").click(function(){
+            $("li#bt_sendguess").click(function(){
+			
+			
+ 
+				alert("bt_sendguess clicked");
+				// not sure with that    141002 
+				//  das bewirkt die Weiterleitung auf die Seite config, 
+				//   aber  wird dann auch das Ajax ausgeführt ?????? 
+				//   
+				
+				// Snoopy   weitermachen   continue     141002   
+				
+				
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				//  ***************************************************************************************************
+				
+				
+				
+				location.href = "#confirm";
+				
+				// 141009
+ 
+                var formData = $("#callAjaxForm").serialize();
+  
+                $.ajax({
+                    type: "POST",
+                    url: "send_qz_guess.php",
+                    cache: false,
+                    data: formData,
+                    success: onSuccess,
+                    error: onError
+                });
+  
+                return false;
+				
+				
+            });
+        });
+    </script>
+
+
+
 
 
 
@@ -123,7 +271,7 @@ $(document).ready(function(){
 		
 		
 		//  Schleife durch das JSON Array: Start hier       vvvvvvvvvvvvvvvvvvvvv 
-		for (var ii = 0; ii <= 9; ii++)
+		for (var ii = 0; ii <= 18; ii++)
 		{
 		
 		
@@ -308,6 +456,93 @@ $(document).ready(function(){
 					break;
 					
 					
+				
+			// Process Quiz start here 	
+			
+			case 'Bf_1DP':
+					$('#questp01d').html(part04);
+					$('#splabel_answ_p01_1d').html(part05);
+					$('#splabel_answ_p01_2d').html(part06);
+					$('#splabel_answ_p01_3d').html(part07);
+					$('#splabel_answ_p01_4d').html(part08);			
+					break;			
+			
+			case 'Bf_1EP':
+					$('#questp01e').html(part04);				 					 
+					$('#splabel_answ_p01_1e').html(part05);
+					$('#splabel_answ_p01_2e').html(part06);
+					$('#splabel_answ_p01_3e').html(part07);
+					$('#splabel_answ_p01_4e').html(part08);			
+					break;						
+					
+			
+			case 'Bf_2DP':
+					$('#questp02d').html(part04);
+					$('#splabel_answ_p02_1d').html(part05);
+					$('#splabel_answ_p02_2d').html(part06);
+					$('#splabel_answ_p02_3d').html(part07);
+					$('#splabel_answ_p02_4d').html(part08);			
+					break;			
+			
+			case 'Bf_2EP':
+					$('#questp02e').html(part04);				 					 
+					$('#splabel_answ_p02_1e').html(part05);
+					$('#splabel_answ_p02_2e').html(part06);
+					$('#splabel_answ_p02_3e').html(part07);
+					$('#splabel_answ_p02_4e').html(part08);			
+					break;						
+			
+			case 'Bf_3DP':
+					$('#questp03d').html(part04);
+					$('#splabel_answ_p03_1d').html(part05);
+					$('#splabel_answ_p03_2d').html(part06);
+					$('#splabel_answ_p03_3d').html(part07);
+					$('#splabel_answ_p03_4d').html(part08);			
+					break;			
+			
+			case 'Bf_3EP':
+					$('#questp03e').html(part04);				 					 
+					$('#splabel_answ_p03_1e').html(part05);
+					$('#splabel_answ_p03_2e').html(part06);
+					$('#splabel_answ_p03_3e').html(part07);
+					$('#splabel_answ_p03_4e').html(part08);			
+					break;						
+					
+			case 'Bf_4DP':
+					$('#questp04d').html(part04);
+					$('#splabel_answ_p04_1d').html(part05);
+					$('#splabel_answ_p04_2d').html(part06);
+					$('#splabel_answ_p04_3d').html(part07);
+					$('#splabel_answ_p04_4d').html(part08);			
+					break;			
+			
+			case 'Bf_4EP':
+					$('#questp04e').html(part04);				 					 
+					$('#splabel_answ_p04_1e').html(part05);
+					$('#splabel_answ_p04_2e').html(part06);
+					$('#splabel_answ_p04_3e').html(part07);
+					$('#splabel_answ_p04_4e').html(part08);			
+					break;						
+															
+			case 'Bf_5DP':
+					$('#questp05d').html(part04);
+					$('#splabel_answ_p05_1d').html(part05);
+					$('#splabel_answ_p05_2d').html(part06);
+					$('#splabel_answ_p05_3d').html(part07);
+					$('#splabel_answ_p05_4d').html(part08);			
+					break;			
+			
+			case 'Bf_5EP':
+					$('#questp05e').html(part04);				 					 
+					$('#splabel_answ_p05_1e').html(part05);
+					$('#splabel_answ_p05_2e').html(part06);
+					$('#splabel_answ_p05_3e').html(part07);
+					$('#splabel_answ_p05_4e').html(part08);			
+					break;						
+					
+					
+					
+					
 			
 		}		// switch (placename)
 		
@@ -368,6 +603,13 @@ $(document).ready(function(){
 		$("#q4fe").hide();
 		$("#q5fe").hide();
 		
+		
+		$("#q1pe").hide();
+		$("#q2pe").hide();
+		$("#q3pe").hide();
+		$("#q4pe").hide();
+		$("#q5pe").hide();
+		
       } 	// success: function(data)          //on recieve of reply
 	  
     });
@@ -377,6 +619,73 @@ $(document).ready(function(){
 </script>
 
 
+<!--  140818  Qz-Seiten 1 ...5 auf de- Version vor-einstellen   --> 
+<!--     150225 und die Kontzakt-Seite gleich miterledigen      --> 
+
+
+	<!-- <script type="text/javascript">	-->
+	<!-- $(document).ready(function(){ 		--> 
+
+	<script type="text/javascript">
+	$( window ).load(function() {
+
+
+		// ich probiere 'mal auf Factory - deutsch zu initialisieren ...........
+		
+		// 140818   $("#lnktoqp01").attr("href", "#qz01f");		
+		$('input[name=my_qtype]').val('F');
+	
+		// 140818
+		// $("a.lnktoqp01").attr("href", "#qz01f");
+		// hmmm  das da funzt aber:    $("#lnktoqp01").attr("href", "#qz01f");		
+		$("a#lnktoqp01").attr("href", "#qz01f"); 
+	
+		
+		// Vorlage:    $('input:radio[name="answ_f01d"]').removeAttr('checked');
+	
+	
+		// Check #x   Factory Qz-Type setzen
+		$( "#qztype1" ).prop( "checked", true );
+
+		// Uncheck #x  Process Qz-type unchecken 
+		$( "#qztype2" ).prop( "checked", false );
+		
+		
+		// 140820 
+		$( "#qztype1" ).checkboxradio("refresh");
+		$( "#qztype2" ).checkboxradio("refresh");
+	
+		// das da funzt net  140819 $('[name="qztype"][value="false"]').attr("checked", true).trigger("change");
+	
+		$("#q1fe").hide();	
+		$("#q2fe").hide();
+		$("#q3fe").hide();
+		$("#q4fe").hide();
+		$("#q5fe").hide();
+		
+		$("#q1pe").hide();
+		$("#q2pe").hide();
+		$("#q3pe").hide();
+		$("#q4pe").hide();
+		$("#q5pe").hide();
+
+		
+		// $("#kont_01e").hide();
+		$("#kont_02e").hide();
+		$("#kont_03e").hide();
+		
+		
+
+});
+</script>
+
+
+
+<!-- Achtung, das geht wohl nur auf der ersten angezeigten Seite gut !!!! Siehe 
+	Don't use $(document).ready(...); Read the first yellow box in the documentation: 
+		http://jquerymobile.com/demos/1.2.0/docs/api/events.html
+-->
+		
 <script type="text/javascript">
 $(document).ready(function(){
 $("#send_test_mail").click(function(){
@@ -434,7 +743,7 @@ $("#cl").click(function(){
 });
 </script>
 
-
+    <!--  140715    Duty     Ist das nachfiolgende Script noch aktuel bzw. noetig  ???????????????? -->
     <script type="text/javascript">
 	$(document).ready(function() {	
 	    
@@ -451,7 +760,7 @@ $("#cl").click(function(){
   </script>
 
 
-  
+  <!-- 140715 impproved --> 
  	
   <script type="text/javascript">
 $(document).ready(function() {
@@ -467,9 +776,32 @@ $(document).ready(function() {
 		$('#ue_qztype').text("Choose quiz type:");
 		$('#ue_language').text("Language:");
 		$('#bt_kontakt').text("Contact");
+		$('#bt_kontakt_k').text("Contact");
+		
+		// 150302 
+		// $('#sendcontactmessage').value("krmplflpmpfl");
+		
+		
+		
+		
+		
 		$('#bt_qz_start').text("Start quiz");		
+		
+		
+		
+		// $('input#sendcontactmessage').text('Ummpfff engl');
+		// $('#sendcontactmessage').prev('.ui-btn-inner').children('.ui-btn-text').html('Ummpfff engl');
+		$('#sendcontactmessage').text("Ummpfff engl");
+		
+		$('#bt_qz_about').text("About");		
+		$('#bt_qz_help').text("Help");		
+		
+		
 		$('.bt_prev').text("prev.");				
 		$('.bt_next').text("next");				
+		
+		// 140715  Sprache hidden in Kontakt-Form
+		$('input[name=my_language]').val('E');
 
 		
 		
@@ -484,6 +816,29 @@ $(document).ready(function() {
 		$("#q5fe").show();
 		$("#q5fd").hide();
 		
+		
+		$("#q1pe").show();
+		$("#q1pd").hide();
+		$("#q2pe").show();
+		$("#q2pd").hide();
+		$("#q3pe").show();
+		$("#q3pd").hide();		
+		$("#q4pe").show();
+		$("#q4pd").hide();
+		$("#q5pe").show();
+		$("#q5pd").hide();
+		
+		
+		//150226
+		// $("#kont_01d").hide();
+		// $("#kont_01e").show();
+		
+		$("#kont_02d").hide();
+		$("#kont_02e").show();
+		
+		$("#kont_03d").hide();
+		$("#kont_03e").show();
+		
 
 		
 	  };
@@ -497,10 +852,26 @@ $(document).ready(function() {
 		$('#ue_qztype').text("Thema des Quiz:");
 		$('#ue_language').text("Sprache:");
 		$('#bt_kontakt').text("Kontakt");
+		$('#bt_kontakt_k').text("Kontakt");
+			
 		$('#bt_qz_start').text("Quiz starten");
+		
+		// 150226
+		// $('input#sendcontactmessage').text('Arrrghghghhg');
+		// $('#sendcontactmessage').prev('.ui-btn-inner').children('.ui-btn-text').html('Arrrghghghhg');
+		$('#sendcontactmessage').text("Arrrghghghhg");
+		$('#sendcontactmessage').text("Arrrghghghhg");
+		
+		
+		
+		$('#bt_qz_about').html("&Uuml;ber");		
+		$('#bt_qz_help').text("Hilfe");		
+		
 		$('.bt_prev').text("zurueck");				
 		$('.bt_next').text("weiter");				
 
+		// 140715  Sprache hidden in Kontakt-Form
+		$('input[name=my_language]').val('D');
 		
 		$("#q1fd").show();
 		$("#q1fe").hide();
@@ -515,6 +886,30 @@ $(document).ready(function() {
 		$("#q5fd").show();
 		$("#q5fe").hide();
 		
+		
+		// Process
+		$("#q1pd").show();
+		$("#q1pe").hide();
+		$("#q2pd").show();
+		$("#q2pe").hide();
+		$("#q3pd").show();
+		$("#q3pe").hide();
+		$("#q4pd").show();
+		$("#q4pe").hide();
+		$("#q5pd").show();
+		$("#q5pe").hide();
+		
+		
+		//150224
+		// $("#kont_01d").show();
+		// $("#kont_01e").hide();
+		
+		$("#kont_02d").show();
+		$("#kont_02e").hide();
+		
+		$("#kont_03d").show();
+		$("#kont_03e").hide();
+		
 	    }	  
 	  
 	  
@@ -525,36 +920,48 @@ $(document).ready(function() {
 
 
 
-  <script type="text/javascript">
-$(document).ready(function() {
+<script type="text/javascript">
+  $(document).ready(function() {
 	// $(":radio").bind ("change", function (event)
 	$("#sel_quiztype :radio").bind ("change", function (event)
 	{	 
 	  if (	$("input#qztype1").attr ("checked"))
 		{		
-		$("#lnktoqp01").attr("href", "#qz01f");		
+		// $("#lnktoqp01").attr("href", "#qz01f");		
+		$('input[name=my_qtype]').val('F');
+		
+		// 140818
+		$("a#lnktoqp01").attr("href", "#qz01f");
+		
+		
 	    };
 	
 	  if (	$("input#qztype2").attr ("checked"))
 		{
-		$("#lnktoqp01").attr("href", "#qz01p");		
+		// $("#lnktoqp01").attr("href", "#qz01p");		
+		$('input[name=my_qtype]').val('P');
+		
+		// 140818
+		$("a#lnktoqp01").attr("href", "#qz01p");
 	    }	    
 	  
 	});
-	})	
+  })	
 </script>
 
   
   
  
-<div data-role="page" id="home">
-  <div data-role="header"><h1>HIMA quiz</h1></div>
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kontakt"><span id="bt_kontakt">Kontakt</span></a></li>
-    </ul>
-  </div>
+<div data-role="page" id="home" data-theme="a">
+
+
+  <div data-role="header"><h1>HAMI Quiz</h1></div>
+	  <div data-role="navbar">
+		<ul>
+			<li><a href="#home" data-icon="home">Home</a></li>
+			<li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
+		</ul>
+	  </div>
   <div data-role="content" id="xyxyxyxy"> 
 	<div id="p1z1">
 		<!-- 
@@ -575,8 +982,9 @@ $(document).ready(function() {
 	</div>
 	
 
-	<br>
-	<br>
+	<br></br>
+	<br></br>
+	
 	
 	
 	<!--  Intermezzo Ausflug Prototyping autocomplete   vvvvvvvvvvvvvvvvv  --> 
@@ -590,8 +998,8 @@ $(document).ready(function() {
 	<!--  Intermezzo Ausflug testweise eine POP3 email verschicken   ^^^^^^^^^^^^^^^^^  -->
 	
 	
-	<br>
-	<br>
+	<br></br>
+	<br></br>
     <button id="send_test_mail">Send Email 140621</button>
 	
 	
@@ -604,8 +1012,8 @@ $(document).ready(function() {
 	
 	<!--  Intermezzo Ausflug Prototyping autocomplete   ^^^^^^^^^^^^^^^^^  -->
 	
-	<br>
-	<br>
+	<br></br>
+	<br></br>
     <button id="cl">Click Me 140620a</button>
 	
 	<h3>Output: </h3>
@@ -644,26 +1052,45 @@ $(document).ready(function() {
 	
 	
 	
-	
 				    	
    	<span id="ue_qztype"> Thema des Quiz : </span>
 
-	<div data-role=controlgroup id="sel_quiztype">			 
+	<div id="sel_quiztype">			 
+      <fieldset data-role="controlgroup">			 			 
 	
 	 <!-- Fabrik Automatisierung = FS in machine automation --> 
+	 
+	 
+	  <!-- vor H-140701
 	  <label id="label_fa" for="qztype1"> <span id="splabel_fa">FS in der Fabrikautomatisierung</span> </label>
 	  <input type="radio" id="qztype1" name="qztype" checked="checked" />
+	  -->
+		
+   	  <input type="radio" id="qztype1" name="qztype" checked="checked" value="qztype-1" />
+	  <label id="label_fa" for="qztype1"> <span id="splabel_fa">FS in der Fabrikautomatisierung</span> </label>
+			
+	<!--		Vorlage 140701  siehe Mitschrift gleiches Datum
+		<input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  />
+     	<label for="radio-choice-2">Dog</label>
+	-->
 			
 	 <!-- Process industry = Prozessindustrie --> 
 	  <label id="label_pi" for="qztype2"> <span id="splabel_pi">FS in der Prozessindustrie</span> </label>
 	  <input type="radio" id="qztype2" name="qztype" />
-    	   
+    
+      </fieldset>	
 	</div>		<!-- Ende control-group -->
 
+	
+	
+
+	
+	
 
    	<span id="ue_language">Sprache : </span>
 
-	<div data-role=controlgroup id="sel_language">			 			 
+	<div id="sel_language">
+      <fieldset data-role="controlgroup">			 			 
 	  
 	  <label id="label_en" for="language1"> <span id="splabel_en">englisch</span> </label>
 	  <input type="radio" id="language1" name="language" />
@@ -671,6 +1098,7 @@ $(document).ready(function() {
 	  <label id="label_de" for="language2"> <span id="splabel_de">deutsch</span> </label>
 	  <input type="radio" id="language2" name="language" checked="checked" />	  
     
+	  </fieldset>
 	</div>		<!-- Ende control-group -->
 	
     
@@ -689,44 +1117,31 @@ $(document).ready(function() {
 	<!--
 	<p><a href="#qz01f" id="lnktoqp01" data-theme="a" data-icon="check" data-role="button"  data-transition="pop">Quiz starten</a></p>
 	--> 
-	<p><a href="#qz01f" id="lnktoqp01" data-theme="a" data-icon="check" data-role="button"  data-transition="pop"><span id="bt_qz_start">Quiz starten</span></a></p>
 	
-	
-	
-	
-	
-	
-	
-  </div>	  <!--  data-role="content" id="xyxyxyxy"  -->
-  <div data-role="footer"><h3>Footer der Seite</h3></div>
+</div>		<!-- data-role="content" -->
+			
+ 
+<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#" id="lnktoqp01" data-icon="grid"><span id="bt_qz_start">Quiz starten</span></a></li>
+		  <li><a href="#qz01f" id="lnktoqabout" data-icon="info"><span id="bt_qz_about">&Uuml;ber</span></a></li>
+		  <li><a href="#qz01f" id="lnktoqhelp" data-inline="true" data-icon="plus"><span id="bt_qz_help">Hilfe</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+</div>
 </div>		<!--   data-role="page" id="home"   -->
  
  
  
  
- <!--  Q Seite 1 P                            -->
- 
- <div data-role="page" id="qz01p">
-  <div data-role="header"><h1>Kontaktseite</h1></div>
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-  </div>
-  <div data-role="content">
-  	<p>Quiz Seite 1 Prizess</p>
-    <div data-role="fieldcontain">
-	
-    	<span>Q Page 1 PPPPPPPPPPPP  </span>		
-		
-    </div>
-  </div>
-  <div data-role="footer"><h3>Footer der Seite</h3></div>
-</div>		<!-- qzo1p  --> 
- 
  
 
+ 
+
+ 
+ 
 
 
  
@@ -735,94 +1150,96 @@ $(document).ready(function() {
  
  <!--  Q Seite 1 F                            -->
  
- <div data-role="page" id="qz01f">
-  <div data-role="header"><h1>Kontaktseite</h1></div>
+ <div data-role="page" id="qz01f" data-title="HAMI Quiz (1/5)">
+  <div data-role="header" data-position="fixed"><h1>HAMI Quiz</h1>
   <div data-role="navbar">
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
     </ul>
   </div>
+  </div>
+  
+  
+  
   <div data-role="content">
   	<p>Quiz Seite 1 Factory</p>
     
 	
     	<span>Q Page 1 FFFFFFFF  </span>		
 		
-		<div data-role="fieldcontain" id="q1fd">
+		<div id="logobild" style="width:90%; margin-left:5%;">				
+			<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="hyp002__f148__970x185.jpg" />
+		</div>
+		<br></br>
 		
-		<label for="questf01d">Frage 1 von 5:</label>
-		<br/>
 		
-		<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf01d"></textarea>
-					
-			
-			<div data-role=controlgroup id="cg_answ_f01d"> 
-	  
-				<label id="label_en" for="r_answ_f01_1d"> <span id="splabel_answ_f01_1d">Antw 01-1 F</span> </label>
-				<input type="radio" id="r_answ_f01_1d" name="answ_f01d" />
-	  
-				<label id="label_en" for="r_answ_f01_2d"> <span id="splabel_answ_f01_2d">Antw 01-2 F</span> </label>
-				<input type="radio" id="r_answ_f01_2d" name="answ_f01d" />
+		<div id="q1fd">
+			<fieldset data-role="controlgroup">
 
-				<label id="label_en" for="r_answ_f01_3d"> <span id="splabel_answ_f01_3d">Antw 01-3 F</span> </label>
-				<input type="radio" id="r_answ_f01_3d" name="answ_f01d" />
-
-				<label id="label_en" for="r_answ_f01_4d"> <span id="splabel_answ_f01_4d">Antw 01-4 F</span> </label>
-				<input type="radio" id="r_answ_f01_4d" name="answ_f01d" />
-
-				
-			</div>		<!-- Ende control-group -->
-			
-			
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf01d"></textarea>
+				</div>		
 		
-		</div>		<!-- fieldcontain  id="q1fd" --> 
+				<div class="input-wrapper">
+						<label for="r_answ_f01_1d"> <span id="splabel_answ_f01_1d">Antw 01-1 F</span>
+							<input type="radio" id="r_answ_f01_1d" name="answ_f01d" />
+						</label>
+						<label for="r_answ_f01_2d"> <span id="splabel_answ_f01_2d">Antw 01-2 F</span>
+							<input type="radio" id="r_answ_f01_2d" name="answ_f01d" />
+						</label>
+						<label for="r_answ_f01_3d"> <span id="splabel_answ_f01_3d">Antw 01-3 F</span>
+							<input type="radio" id="r_answ_f01_3d" name="answ_f01d" />
+						</label>
+						<label for="r_answ_f01_4d"> <span id="splabel_answ_f01_4d">Antw 01-4 F</span>
+							<input type="radio" id="r_answ_f01_4d" name="answ_f01d" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div>
 		
-				
 		<!-- en-version page 1 --> 
-		<div data-role="fieldcontain" id="q1fe">
-		
-		<label for="questf01e">Question 1 of 5:</label>
-		<br/>
-		
-		<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf01e"></textarea>
-					
-			
-			<div data-role=controlgroup id="cg_answ_f01e"> 
-	  
-				<label id="label_en" for="r_answ_f01_1e"> <span id="splabel_answ_f01_1e">Antw 01-1 F</span> </label>
-				<input type="radio" id="r_answ_f01_1e" name="answ_f01e" />
-	  
-				<label id="label_en" for="r_answ_f01_2e"> <span id="splabel_answ_f01_2e">Antw 01-2 F</span> </label>
-				<input type="radio" id="r_answ_f01_2e" name="answ_f01e" />
 
-				<label id="label_en" for="r_answ_f01_3e"> <span id="splabel_answ_f01_3e">Antw 01-3 F</span> </label>
-				<input type="radio" id="r_answ_f01_3e" name="answ_f01e" />
+		<div id="q1fe">
+			<fieldset data-role="controlgroup">
 
-				<label id="label_en" for="r_answ_f01_4e"> <span id="splabel_answ_f01_4e">Antw 01-4 F</span> </label>
-				<input type="radio" id="r_answ_f01_4e" name="answ_f01e" />
-
-				
-			</div>		<!-- Ende control-group -->
-			
-			
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf01e"></textarea>
+				</div>		
 		
-		</div>		<!-- fieldcontain  id="q1fe" --> 
+				<div class="input-wrapper">
+						<label for="r_answ_f01_1e"> <span id="splabel_answ_f01_1e">Antw 01-1 F</span>
+							<input type="radio" id="r_answ_f01_1e" name="answ_f01e" />
+						</label>
+						<label for="r_answ_f01_2e"> <span id="splabel_answ_f01_2e">Antw 01-2 F</span>
+							<input type="radio" id="r_answ_f01_2e" name="answ_f01e" />
+						</label>
+						<label for="r_answ_f01_3e"> <span id="splabel_answ_f01_3e">Antw 01-3 F</span>
+							<input type="radio" id="r_answ_f01_3e" name="answ_f01e" />
+						</label>
+						<label for="r_answ_f01_4e"> <span id="splabel_answ_f01_4e">Antw 01-4 F</span>
+							<input type="radio" id="r_answ_f01_4e" name="answ_f01e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div>
 			
     
-  </div>
+  </div>	<!--  data-role="content"  -->
   
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#" class="ui-disabled"><span class="bt_prev">zurueck</span></a></li>
-        <li><a href="#qz02f"><span class="bt_next">weiter</span></a></li>
-    </ul>
-  </div>
-    
-  <div data-role="footer">
-		<h3>Footer der Seite</h3>
-  </div>
-</div>		<!-- qzo1f  --> 
+<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#" class="ui-disabled" data-icon="arrow-l"><span class="bt_prev">zurueck</span></a></li>
+		  <li><a href="#qz02f" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+</div>
+
+</div>		<!-- qz01f  --> 
 
 
 
@@ -831,85 +1248,89 @@ $(document).ready(function() {
 
  <!--  Q Seite 2 F                            -->
  
- <div data-role="page" id="qz02f">
-  <div data-role="header"><h1>Kontaktseite</h1></div>
+ <div data-role="page" id="qz02f" data-title="HAMI Quiz (2/5)">
+  <div data-role="header"><h1>HAMI Quiz</h1></div>
   <div data-role="navbar">
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
     </ul>
   </div>
   <div data-role="content">
   	<p>Quiz Seite 2 Factory</p>
+	
+	<div id="logobild" style="width:90%; margin-left:5%;">				
+			<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="hyp015e _f148__970x185.jpg" />
+	</div>
+	<br></br>
     	
     	<span>Q Page 2 FFFFFFFF  </span>		
 		
-		<div data-role="fieldcontain" id="q2fd">
+		<!-- de-version page 2 --> 
+
+		<div id="q2fd">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf02d"></textarea>
+				</div>		
 		
-		<label for="questf02d">Frage 2 von 5:</label>
-		<br/>
-		
-		<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf02d"></textarea>					
-			
-			<div data-role=controlgroup id="cg_answ_f02d">			 			 
-	  
-				<label id="label_en" for="r_answ_f02_1d"> <span id="splabel_answ_f02_1d">Antw 02-1 F</span> </label>
-				<input type="radio" id="r_answ_f02_1d" name="answ_f02d" />
-	  
-				<label id="label_en" for="r_answ_f02_2d"> <span id="splabel_answ_f02_2d">Antw 02-2 F</span> </label>
-				<input type="radio" id="r_answ_f02_2d" name="answ_f02d" />
+				<div class="input-wrapper">
+						<label for="r_answ_f02_1d"> <span id="splabel_answ_f02_1d">Antw 02-1 F</span>
+							<input type="radio" id="r_answ_f02_1d" name="answ_f02d" />
+						</label>
+						<label for="r_answ_f02_2d"> <span id="splabel_answ_f02_2d">Antw 02-2 F</span>
+							<input type="radio" id="r_answ_f02_2d" name="answ_f02d" />
+						</label>
+						<label for="r_answ_f02_3d"> <span id="splabel_answ_f02_3d">Antw 02-3 F</span>
+							<input type="radio" id="r_answ_f02_3d" name="answ_f02d" />
+						</label>
+						<label for="r_answ_f02_4d"> <span id="splabel_answ_f02_4d">Antw 02-4 F</span>
+							<input type="radio" id="r_answ_f02_4d" name="answ_f02d" />
+						</label>
 
-				<label id="label_en" for="r_answ_f02_3d"> <span id="splabel_answ_f02_3d">Antw 02-3 F</span> </label>
-				<input type="radio" id="r_answ_f02_3d" name="answ_f02d" />
-
-				<label id="label_en" for="r_answ_f02_4d"> <span id="splabel_answ_f02_4d">Antw 02-4 F</span> </label>
-				<input type="radio" id="r_answ_f02_4d" name="answ_f02d" />
-
+				</div>
+			</fieldset>
+		</div> 
 				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain   id="q2fd" --> 
 		
-		
-		<!-- en-version page 2 --> 		
-		
-		<div data-role="fieldcontain" id="q2fe">
-		
-		<label for="questf02e">Question 2 of 5:</label>
-		<br/>
-		
-		<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf02e"></textarea>					
-			
-			<div data-role=controlgroup id="cg_answ_f02e">			 			 
-	  
-				<label id="label_en" for="r_answ_f02_1e"> <span id="splabel_answ_f02_1e">Antw 02-1 F</span> </label>
-				<input type="radio" id="r_answ_f02_1e" name="answ_f02e" />
-	  
-				<label id="label_en" for="r_answ_f02_2e"> <span id="splabel_answ_f02_2e">Antw 02-2 F</span> </label>
-				<input type="radio" id="r_answ_f02_2e" name="answ_f02e" />
+		<!-- de-version page 2 --> 
 
-				<label id="label_en" for="r_answ_f02_3e"> <span id="splabel_answ_f02_3e">Antw 02-3 F</span> </label>
-				<input type="radio" id="r_answ_f02_3e" name="answ_f02e" />
+		<div id="q2fe">	
+		<fieldset data-role="controlgroup">
 
-				<label id="label_en" for="r_answ_f02_4e"> <span id="splabel_answ_f02_4e">Antw 02-4 F</span> </label>
-				<input type="radio" id="r_answ_f02_4e" name="answ_f02e" />
-				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain   id="q2fe" --> 
-			
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf02e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_f02_1e"> <span id="splabel_answ_f02_1e">Antw 02-1 F</span>
+							<input type="radio" id="r_answ_f02_1e" name="answ_f02e" />
+						</label>
+						<label for="r_answ_f02_2e"> <span id="splabel_answ_f02_2e">Antw 02-2 F</span>
+							<input type="radio" id="r_answ_f02_2e" name="answ_f02e" />
+						</label>
+						<label for="r_answ_f02_3e"> <span id="splabel_answ_f02_3e">Antw 02-3 F</span>
+							<input type="radio" id="r_answ_f02_3e" name="answ_f02e" />
+						</label>
+						<label for="r_answ_f02_4e"> <span id="splabel_answ_f02_4e">Antw 02-4 F</span>
+							<input type="radio" id="r_answ_f02_4e" name="answ_f02e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
     
   </div>
   
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#qz01f"><span class="bt_prev">zurueck</span></a></li>
-        <li><a href="#qz03f"><span class="bt_next">weiter</span></a></li>
-    </ul>
-  </div>
-    
-  <div data-role="footer">
-		<h3>Footer der Seite</h3>
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz01f" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qz03f" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
   </div>
 </div>		<!-- qzo2f  --> 
 
@@ -920,176 +1341,183 @@ $(document).ready(function() {
  
  <!--  Q Seite 3 F                            -->
  
- <div data-role="page" id="qz03f">
-  <div data-role="header"><h1>Kontaktseite</h1></div>
+ <div data-role="page" id="qz03f" data-title="HAMI Quiz (3/5)">
+  <div data-role="header"><h1>HAMI Quiz</h1></div>
   <div data-role="navbar">
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
     </ul>
   </div>
   <div data-role="content">
   	<p>Quiz Seite 3 Factory</p>
     	
-    	<span>Q Page 3 FFFFFFFF  </span>		
+	<div id="logobild" style="width:90%; margin-left:5%;">				
+			<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="hyp020a_f148__970x185.jpg" />
+	</div>
+	<br></br>
 		
-		<div data-role="fieldcontain" id="q3fd">
-		
-		<label for="questf03d">Frage 3 von 5:</label>
-		<br/>
-		
-		<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf03d"></textarea>
-					
-			
-			<div data-role=controlgroup id="cg_answ_f03d">			 			 
-	  
-				<label id="label_en" for="r_answ_f03_1d"> <span id="splabel_answ_f03_1d">Antw 03-1 F</span> </label>
-				<input type="radio" id="r_answ_f03_1d" name="answ_f03d" />
-	  
-				<label id="label_en" for="r_answ_f03_2d"> <span id="splabel_answ_f03_2d">Antw 03-2 F</span> </label>
-				<input type="radio" id="r_answ_f03_2d" name="answ_f03d" />
+    	<span>Q Page 3 FFFFFFFF  </span>			
 
-				<label id="label_en" for="r_answ_f03_3d"> <span id="splabel_answ_f03_3d">Antw 03-3 F</span> </label>
-				<input type="radio" id="r_answ_f03_3d" name="answ_f03d" />
+		<!-- de-version page 3 --> 
 
-				<label id="label_en" for="r_answ_f03_4d"> <span id="splabel_answ_f03_4d">Antw 03-4 F</span> </label>
-				<input type="radio" id="r_answ_f03_4d" name="answ_f03d" />
+		<div id="q3fd">	
+			<fieldset data-role="controlgroup">
 
-				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain     id="q3fd" --> 
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf03d"></textarea>
+				</div>		
 		
-		
-		<!-- en-version page 3 --> 		
-		<div data-role="fieldcontain" id="q3fe">
-		
-		<label for="questf03e">Question 3 of 5:</label>
-		<br/>
-		
-		<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf03e"></textarea>
-					
-			
-			<div data-role=controlgroup id="cg_answ_f03e">			 			 
-	  
-				<label id="label_en" for="r_answ_f03_1e"> <span id="splabel_answ_f03_1e">Antw 03-1 F</span> </label>
-				<input type="radio" id="r_answ_f03_1e" name="answ_f03e" />
-	  
-				<label id="label_en" for="r_answ_f03_2e"> <span id="splabel_answ_f03_2e">Antw 03-2 F</span> </label>
-				<input type="radio" id="r_answ_f03_2e" name="answ_f03e" />
+				<div class="input-wrapper">
+						<label for="r_answ_f03_1d"> <span id="splabel_answ_f03_1d">Antw 03-1 F</span>
+							<input type="radio" id="r_answ_f03_1d" name="answ_f03d" />
+						</label>
+						<label for="r_answ_f03_2d"> <span id="splabel_answ_f03_2d">Antw 03-2 F</span>
+							<input type="radio" id="r_answ_f03_2d" name="answ_f03d" />
+						</label>
+						<label for="r_answ_f03_3d"> <span id="splabel_answ_f03_3d">Antw 03-3 F</span>
+							<input type="radio" id="r_answ_f03_3d" name="answ_f03d" />
+						</label>
+						<label for="r_answ_f03_4d"> <span id="splabel_answ_f03_4d">Antw 03-4 F</span>
+							<input type="radio" id="r_answ_f03_4d" name="answ_f03d" />
+						</label>
 
-				<label id="label_en" for="r_answ_f03_3e"> <span id="splabel_answ_f03_3e">Antw 03-3 F</span> </label>
-				<input type="radio" id="r_answ_f03_3e" name="answ_f03e" />
+				</div>
+			</fieldset>
+		</div> 
 
-				<label id="label_en" for="r_answ_f03_4e"> <span id="splabel_answ_f03_4e">Antw 03-4 F</span> </label>
-				<input type="radio" id="r_answ_f03_4e" name="answ_f03e" />
+		<!-- en-version page 3 --> 
 
-				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain     id="q3fe" --> 
+		<div id="q3fe">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf03e"></textarea>
+				</div>		
 		
+				<div class="input-wrapper">
+						<label for="r_answ_f03_1e"> <span id="splabel_answ_f03_1e">Antw 03-1 F</span>
+							<input type="radio" id="r_answ_f03_1e" name="answ_f03e" />
+						</label>
+						<label for="r_answ_f03_2e"> <span id="splabel_answ_f03_2e">Antw 03-2 F</span>
+							<input type="radio" id="r_answ_f03_2e" name="answ_f03e" />
+						</label>
+						<label for="r_answ_f03_3e"> <span id="splabel_answ_f03_3e">Antw 03-3 F</span>
+							<input type="radio" id="r_answ_f03_3e" name="answ_f03e" />
+						</label>
+						<label for="r_answ_f03_4e"> <span id="splabel_answ_f03_4e">Antw 03-4 F</span>
+							<input type="radio" id="r_answ_f03_4e" name="answ_f03e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
     
   </div>
   
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#qz02f"><span class="bt_prev">zurueck</span></a></li>
-        <li><a href="#qz04f"><span class="bt_next">weiter</span></a></li>
-    </ul>
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz02f" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qz04f" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
   </div>
-    
-  <div data-role="footer">
-	<h3>Footer der Seite</h3>
-  </div>
+
 </div>		<!-- qzo3f  --> 
  
 
 
  <!--  Q Seite 4 F                            -->
  
- <div data-role="page" id="qz04f">
+<div data-role="page" id="qz04f" data-title="HAMI Quiz (4/5)">
     <div data-role="header">
-		<h1>Kontaktseite</h1>
+		<h1>HAMI Quiz</h1>
 	</div>
 	<div data-role="navbar">
 		<ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
 		</ul>
 	</div>
   
   <div data-role="content">
   	<p>Quiz Seite 4 Factory</p>
+	<div id="logobild" style="width:90%; margin-left:5%;">				
+			<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="hyp020b_f148__970x185.jpg" />
+	</div>
+	<br></br>
     	
-    	<span>Q Page 3 FFFFFFFF  </span>		
+    	<span>Q Page 4 FFFFFFFF  </span>			
 		
-		<div data-role="fieldcontain" id="q4fd">
-		
-		    <label for="questf04d">Frage 4 von 5:</label>
-		    <br/>
-		
-		    <textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf04d"></textarea>				
-			
-			<div data-role=controlgroup id="cg_answ_f04d">			 			 
-	  
-				<label id="label_en" for="r_answ_f04_1d"> <span id="splabel_answ_f04_1d">Antw 04-1 F</span> </label>
-				<input type="radio" id="r_answ_f04_1d" name="answ_f04d" />
-	  
-				<label id="label_en" for="r_answ_f04_2d"> <span id="splabel_answ_f04_2d">Antw 04-2 F</span> </label>
-				<input type="radio" id="r_answ_f04_2d" name="answ_f04d" />
+		<!-- de-version page 4 --> 
 
-				<label id="label_en" for="r_answ_f04_3d"> <span id="splabel_answ_f04_3d">Antw 04-3 F</span> </label>
-				<input type="radio" id="r_answ_f04_3d" name="answ_f04d" />
+		<div id="q4fd">	
+			<fieldset data-role="controlgroup">
 
-				<label id="label_en" for="r_answ_f04_4d"> <span id="splabel_answ_f04_4d">Antw 04-4 F</span> </label>
-				<input type="radio" id="r_answ_f04_4d" name="answ_f04d" />
-				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain     id="q4fd" --> 
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf04d"></textarea>
+				</div>		
 		
-		
-		<!-- en-version page 4 --> 		
-		<div data-role="fieldcontain" id="q4fe">
-		
-			<label for="questf04e">Question 4 of 5:</label>
-			<br/>
-		
-			<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf04e"></textarea>					
-			
-			<div data-role=controlgroup id="cg_answ_f04e">			 			 
-	  
-				<label id="label_en" for="r_answ_f04_1e"> <span id="splabel_answ_f04_1e">Answ 04-1 F</span> </label>
-				<input type="radio" id="r_answ_f04_1e" name="answ_f04e" />
-	  
-				<label id="label_en" for="r_answ_f04_2e"> <span id="splabel_answ_f04_2e">Answ 04-2 F</span> </label>
-				<input type="radio" id="r_answ_f04_2e" name="answ_f04e" />
+				<div class="input-wrapper">
+						<label for="r_answ_f04_1d"> <span id="splabel_answ_f04_1d">Antw 04-1 F</span>
+							<input type="radio" id="r_answ_f04_1d" name="answ_f04d" />
+						</label>
+						<label for="r_answ_f04_2d"> <span id="splabel_answ_f04_2d">Antw 04-2 F</span>
+							<input type="radio" id="r_answ_f04_2d" name="answ_f04d" />
+						</label>
+						<label for="r_answ_f04_3d"> <span id="splabel_answ_f04_3d">Antw 04-3 F</span>
+							<input type="radio" id="r_answ_f04_3d" name="answ_f04d" />
+						</label>
+						<label for="r_answ_f04_4d"> <span id="splabel_answ_f04_4d">Antw 04-4 F</span>
+							<input type="radio" id="r_answ_f04_4d" name="answ_f04d" />
+						</label>
 
-				<label id="label_en" for="r_answ_f04_3e"> <span id="splabel_answ_f04_3e">Answ 04-3 F</span> </label>
-				<input type="radio" id="r_answ_f04_3e" name="answ_f04e" />
+				</div>
+			</fieldset>
+		</div> 
+		
+		<!-- en-version page 4 --> 
 
-				<label id="label_en" for="r_answ_f04_4e"> <span id="splabel_answ_f04_4e">Answ 04-4 F</span> </label>
-				<input type="radio" id="r_answ_f04_4e" name="answ_f04e" />
+		<div id="q4fe">	
+			<fieldset data-role="controlgroup">
 
-				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain     id="q4fe" --> 		
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf04e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_f04_1e"> <span id="splabel_answ_f04_1e">Antw 04-1 F</span>
+							<input type="radio" id="r_answ_f04_1e" name="answ_f04e" />
+						</label>
+						<label for="r_answ_f04_2e"> <span id="splabel_answ_f04_2e">Antw 04-2 F</span>
+							<input type="radio" id="r_answ_f04_2e" name="answ_f04e" />
+						</label>
+						<label for="r_answ_f04_3e"> <span id="splabel_answ_f04_3e">Antw 04-3 F</span>
+							<input type="radio" id="r_answ_f04_3e" name="answ_f04e" />
+						</label>
+						<label for="r_answ_f04_4e"> <span id="splabel_answ_f04_4e">Antw 04-4 F</span>
+							<input type="radio" id="r_answ_f04_4e" name="answ_f04e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
     
   </div>
   
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#qz03f"><span class="bt_prev">zurueck</span></a></li>
-        <li><a href="#qz05f"><span class="bt_next">weiter</span></a></li>
-    </ul>
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz03f" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qz05f" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
   </div>
-    
-  <div data-role="footer">
-	<h3>Footer der Seite</h3>
-  </div>
-  </div>		<!-- qzo4f  --> 
+
+</div>		<!-- qzo4f  --> 
  
 
  
@@ -1098,14 +1526,14 @@ $(document).ready(function() {
 
  <!--  Q Seite 5 F                            -->
  
- <div data-role="page" id="qz05f">
+ <div data-role="page" id="qz05f" data-title="HAMI Quiz (5/5)">
     <div data-role="header">
-		<h1>Kontaktseite</h1>
+		<h1>HAMI Quiz</h1>
 	</div>
 	<div data-role="navbar">
 		<ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
 		</ul>
 	</div>
   
@@ -1113,76 +1541,850 @@ $(document).ready(function() {
   	<p>Quiz Seite 5 Factory</p>
     	
     	<span>Q Page 5 FFFFFFFF  </span>		
-		
-		<div data-role="fieldcontain" id="q5fd">
-		
-		    <label for="questf04d">Frage 5 von 5:</label>
-		    <br/>
-		
-		    <textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf05d"></textarea>				
-			
-			<div data-role=controlgroup id="cg_answ_f05d">			 			 
-	  
-				<label id="label_en" for="r_answ_f05_1d"> <span id="splabel_answ_f05_1d">Antw 05-1 F</span> </label>
-				<input type="radio" id="r_answ_f05_1d" name="answ_f05d" />
-	  
-				<label id="label_en" for="r_answ_f05_2d"> <span id="splabel_answ_f05_2d">Antw 05-2 F</span> </label>
-				<input type="radio" id="r_answ_f05_2d" name="answ_f05d" />
-
-				<label id="label_en" for="r_answ_f05_3d"> <span id="splabel_answ_f05_3d">Antw 05-3 F</span> </label>
-				<input type="radio" id="r_answ_f05_3d" name="answ_f05d" />
-
-				<label id="label_en" for="r_answ_f05_4d"> <span id="splabel_answ_f05_4d">Antw 05-4 F</span> </label>
-				<input type="radio" id="r_answ_f05_4d" name="answ_f05d" />
-				
-			</div>		<!-- Ende control-group -->
+		<div id="logobild" style="width:90%; margin-left:5%;">				
+			<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="hyp020c_f148__970x185.jpg" />
+		</div>
+		<br></br>
 					
-		</div>		<!-- fieldcontain     id="q5fd" --> 
-		
-		
-		<!-- en-version page 5 --> 		
-		<div data-role="fieldcontain" id="q5fe">
-		
-			<label for="questf05e">Question 5 of 5:</label>
-			<br/>
-		
-			<textarea  readonly="readonly" cols="40" rows="8" name="textarea" id="questf05e"></textarea>					
-			
-			<div data-role=controlgroup id="cg_answ_f05e">			 			 
-	  
-				<label id="label_en" for="r_answ_f05_1e"> <span id="splabel_answ_f05_1e">Answ 05-1 F</span> </label>
-				<input type="radio" id="r_answ_f05_1e" name="answ_f05e" />
-	  
-				<label id="label_en" for="r_answ_f05_2e"> <span id="splabel_answ_f05_2e">Answ 05-2 F</span> </label>
-				<input type="radio" id="r_answ_f05_2e" name="answ_f05e" />
+		<!-- de-version page 5 --> 
 
-				<label id="label_en" for="r_answ_f05_3e"> <span id="splabel_answ_f05_3e">Answ 05-3 F</span> </label>
-				<input type="radio" id="r_answ_f05_3e" name="answ_f05e" />
+		<div id="q5fd">	
+		<fieldset data-role="controlgroup">
 
-				<label id="label_en" for="r_answ_f05_4e"> <span id="splabel_answ_f05_4e">Answ 05-4 F</span> </label>
-				<input type="radio" id="r_answ_f05_4e" name="answ_f05e" />
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf05d"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_f05_1d"> <span id="splabel_answ_f05_1d">Antw 05-1 F</span>
+							<input type="radio" id="r_answ_f05_1d" name="answ_f05d" />
+						</label>
+						<label for="r_answ_f05_2d"> <span id="splabel_answ_f05_2d">Antw 05-2 F</span>
+							<input type="radio" id="r_answ_f05_2d" name="answ_f05d" />
+						</label>
+						<label for="r_answ_f05_3d"> <span id="splabel_answ_f05_3d">Antw 05-3 F</span>
+							<input type="radio" id="r_answ_f05_3d" name="answ_f05d" />
+						</label>
+						<label for="r_answ_f05_4d"> <span id="splabel_answ_f05_4d">Antw 05-4 F</span>
+							<input type="radio" id="r_answ_f05_4d" name="answ_f05d" />
+						</label>
 
+				</div>
+			</fieldset>
+		</div> 
+
+		<!-- en-version page 5 --> 
+
+		<div id="q5fe">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questf05e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_f05_1e"> <span id="splabel_answ_f05_1e">Antw 05-1 F</span>
+							<input type="radio" id="r_answ_f05_1e" name="answ_f05e" />
+						</label>
+						<label for="r_answ_f05_2e"> <span id="splabel_answ_f05_2e">Antw 05-2 F</span>
+							<input type="radio" id="r_answ_f05_2e" name="answ_f05e" />
+						</label>
+						<label for="r_answ_f05_3e"> <span id="splabel_answ_f05_3e">Antw 05-3 F</span>
+							<input type="radio" id="r_answ_f05_3e" name="answ_f05e" />
+						</label>
+						<label for="r_answ_f05_4e"> <span id="splabel_answ_f05_4e">Antw 05-4 F</span>
+							<input type="radio" id="r_answ_f05_4e" name="answ_f05e" />
+						</label>
+				</div>
 				
-			</div>		<!-- Ende control-group -->
-					
-		</div>		<!-- fieldcontain     id="q5fe" --> 		
+			</fieldset>
+		</div> 		
+		
     
   </div>
   
-  <div data-role="navbar">
-    <ul>
-        <li><a href="#qz04f""><span class="bt_prev">zurueck</span></a></li>
-        <li><a href="#" class="ui-disabled"><span class="bt_next">weiter</span></a></li>		
-    </ul>
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz04f" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qzsendguess" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>		  
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
   </div>
-    
-  <div data-role="footer">
-	<h3>Footer der Seite</h3>
-  </div>
-  </div>		<!-- qzo5f  --> 
+</div>		<!-- qzo5f  --> 
+ 
+ 
  
  
 
+<!-- Factory Quiz   page 1 ... 5 ends here  -->
+<!-- #####################################  -->
+<!-- #####################################  -->
+
+
+ 
+ 
+ 
+ 
+<!-- Process Quiz   Page 1 ... 5 starts here   --> 
+
+
+ <!--  Q Seite 1 F                            -->
+ 
+ <div data-role="page" id="qz01p" data-title="HAMI Quiz P (1/5)">
+  <div data-role="header" data-position="fixed"><h1>HAMI Quiz P</h1>
+  <div data-role="navbar">
+    <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
+    </ul>
+  </div>
+  </div>
+  
+  
+  
+  <div data-role="content">
+  	<p>Quiz Seite 1 Process</p>
+    
+	
+    	<span>Q Page 1 PPPPP  </span>		
+		
+		<div id="q1pd">
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp01d"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p01_1d"> <span id="splabel_answ_p01_1d">Antw 01-1 P</span>
+							<input type="radio" id="r_answ_p01_1d" name="answ_p01d" />
+						</label>
+						<label for="r_answ_p01_2d"> <span id="splabel_answ_p01_2d">Antw 01-2 P</span>
+							<input type="radio" id="r_answ_p01_2d" name="answ_p01d" />
+						</label>
+						<label for="r_answ_p01_3d"> <span id="splabel_answ_p01_3d">Antw 01-3 P</span>
+							<input type="radio" id="r_answ_p01_3d" name="answ_p01d" />
+						</label>
+						<label for="r_answ_p01_4d"> <span id="splabel_answ_p01_4d">Antw 01-4 P</span>
+							<input type="radio" id="r_answ_p01_4d" name="answ_p01d" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div>
+		
+		<!-- en-version page 1 --> 
+
+		<div id="q1pe">
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp01e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p01_1e"> <span id="splabel_answ_p01_1e">Antw 01-1 P</span>
+							<input type="radio" id="r_answ_p01_1e" name="answ_p01e" />
+						</label>
+						<label for="r_answ_p01_2e"> <span id="splabel_answ_p01_2e">Antw 01-2 P</span>
+							<input type="radio" id="r_answ_p01_2e" name="answ_p01e" />
+						</label>
+						<label for="r_answ_p01_3e"> <span id="splabel_answ_p01_3e">Antw 01-3 P</span>
+							<input type="radio" id="r_answ_p01_3e" name="answ_p01e" />
+						</label>
+						<label for="r_answ_p01_4e"> <span id="splabel_answ_p01_4e">Antw 01-4 P</span>
+							<input type="radio" id="r_answ_p01_4e" name="answ_p01e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div>
+			
+    
+  </div>	<!--  data-role="content"  -->
+  
+<div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#" class="ui-disabled" data-icon="arrow-l"><span class="bt_prev">zurueck</span></a></li>
+		  <li><a href="#qz02p" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+</div>
+
+</div>		<!-- qz01p  --> 
+
+
+
+
+ <!--  Q Seite 2 P                            -->
+ 
+ <div data-role="page" id="qz02p" data-title="HAMI Quiz (2/5)">
+  <div data-role="header"><h1>HAMI Quiz</h1></div>
+  <div data-role="navbar">
+    <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
+    </ul>
+  </div>
+  <div data-role="content">
+  	<p>Quiz Seite 2 Process</p>
+    	
+    	<span>Q Page 2 PPPP  </span>		
+		
+		<!-- de-version page 2  P --> 
+
+		<div id="q2pd">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp02d"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p02_1d"> <span id="splabel_answ_p02_1d">Antw 02-1 P</span>
+							<input type="radio" id="r_answ_p02_1d" name="answ_p02d" />
+						</label>
+						<label for="r_answ_p02_2d"> <span id="splabel_answ_p02_2d">Antw 02-2 P</span>
+							<input type="radio" id="r_answ_p02_2d" name="answ_p02d" />
+						</label>
+						<label for="r_answ_p02_3d"> <span id="splabel_answ_p02_3d">Antw 02-3 P</span>
+							<input type="radio" id="r_answ_p02_3d" name="answ_p02d" />
+						</label>
+						<label for="r_answ_p02_4d"> <span id="splabel_answ_p02_4d">Antw 02-4 P</span>
+							<input type="radio" id="r_answ_p02_4d" name="answ_p02d" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+				
+		
+		<!-- en-version page 2  P --> 
+
+		<div id="q2pe">	
+		<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp02e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p02_1e"> <span id="splabel_answ_p02_1e">Antw 02-1 P</span>
+							<input type="radio" id="r_answ_p02_1e" name="answ_p02e" />
+						</label>
+						<label for="r_answ_p02_2e"> <span id="splabel_answ_p02_2e">Antw 02-2 P</span>
+							<input type="radio" id="r_answ_p02_2e" name="answ_p02e" />
+						</label>
+						<label for="r_answ_p02_3e"> <span id="splabel_answ_p02_3e">Antw 02-3 P</span>
+							<input type="radio" id="r_answ_p02_3e" name="answ_p02e" />
+						</label>
+						<label for="r_answ_p02_4e"> <span id="splabel_answ_p02_4e">Antw 02-4 P</span>
+							<input type="radio" id="r_answ_p02_4e" name="answ_p02e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+    
+  </div>
+  
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz01p" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qz03p" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+  </div>
+</div>		<!-- qzo2p  --> 
+
+ 
+ 
+ 
+ 
+ 
+ <!--  Q Seite 3 P                            -->
+ 
+ <div data-role="page" id="qz03p" data-title="HAMI Quiz (3/5)">
+  <div data-role="header"><h1>HAMI Quiz</h1></div>
+  <div data-role="navbar">
+    <ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
+    </ul>
+  </div>
+  <div data-role="content">
+  	<p>Quiz Seite 3 Process</p>
+    	
+    	<span>Q Page 3 PPPP  </span>			
+
+		<!-- de-version page 3 --> 
+
+		<div id="q3pd">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp03d"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p03_1d"> <span id="splabel_answ_p03_1d">Antw 03-1 P</span>
+							<input type="radio" id="r_answ_p03_1d" name="answ_p03d" />
+						</label>
+						<label for="r_answ_p03_2d"> <span id="splabel_answ_p03_2d">Antw 03-2 P</span>
+							<input type="radio" id="r_answ_p03_2d" name="answ_p03d" />
+						</label>
+						<label for="r_answ_p03_3d"> <span id="splabel_answ_p03_3d">Antw 03-3 P</span>
+							<input type="radio" id="r_answ_p03_3d" name="answ_p03d" />
+						</label>
+						<label for="r_answ_p03_4d"> <span id="splabel_answ_p03_4d">Antw 03-4 P</span>
+							<input type="radio" id="r_answ_p03_4d" name="answ_p03d" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+
+		<!-- en-version page 3 --> 
+
+		<div id="q3pe">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp03e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p03_1e"> <span id="splabel_answ_p03_1e">Antw 03-1 P</span>
+							<input type="radio" id="r_answ_p03_1e" name="answ_p03e" />
+						</label>
+						<label for="r_answ_p03_2e"> <span id="splabel_answ_p03_2e">Antw 03-2 P</span>
+							<input type="radio" id="r_answ_p03_2e" name="answ_p03e" />
+						</label>
+						<label for="r_answ_p03_3e"> <span id="splabel_answ_p03_3e">Antw 03-3 P</span>
+							<input type="radio" id="r_answ_p03_3e" name="answ_p03e" />
+						</label>
+						<label for="r_answ_p03_4e"> <span id="splabel_answ_p03_4e">Antw 03-4 P</span>
+							<input type="radio" id="r_answ_p03_4e" name="answ_p03e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+    
+  </div>
+  
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz02p" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qz04p" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+  </div>
+
+</div>		<!-- qzo3p  --> 
+ 
+ 
+ 
+
+
+ <!--  Q Seite 4 P                            -->
+ 
+<div data-role="page" id="qz04p" data-title="HAMI Quiz (4/5)">
+    <div data-role="header">
+		<h1>HAMI Quiz</h1>
+	</div>
+	<div data-role="navbar">
+		<ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
+		</ul>
+	</div>
+  
+  <div data-role="content">
+  	<p>Quiz Seite 4 Process</p>
+    	
+    	<span>Q Page 4 PPPP  </span>			
+		
+		<!-- de-version page 4 --> 
+
+		<div id="q4pd">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp04d"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p04_1d"> <span id="splabel_answ_p04_1d">Antw 04-1 P</span>
+							<input type="radio" id="r_answ_p04_1d" name="answ_p04d" />
+						</label>
+						<label for="r_answ_p04_2d"> <span id="splabel_answ_p04_2d">Antw 04-2 P</span>
+							<input type="radio" id="r_answ_p04_2d" name="answ_p04d" />
+						</label>
+						<label for="r_answ_p04_3d"> <span id="splabel_answ_p04_3d">Antw 04-3 P</span>
+							<input type="radio" id="r_answ_p04_3d" name="answ_p04d" />
+						</label>
+						<label for="r_answ_p04_4d"> <span id="splabel_answ_p04_4d">Antw 04-4 P</span>
+							<input type="radio" id="r_answ_p04_4d" name="answ_p04d" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+		
+		<!-- en-version page 4 --> 
+
+		<div id="q4pe">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp04e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p04_1e"> <span id="splabel_answ_p04_1e">Antw 04-1 P</span>
+							<input type="radio" id="r_answ_p04_1e" name="answ_p04e" />
+						</label>
+						<label for="r_answ_p04_2e"> <span id="splabel_answ_p04_2e">Antw 04-2 P</span>
+							<input type="radio" id="r_answ_p04_2e" name="answ_p04e" />
+						</label>
+						<label for="r_answ_p04_3e"> <span id="splabel_answ_p04_3e">Antw 04-3 P</span>
+							<input type="radio" id="r_answ_p04_3e" name="answ_p04e" />
+						</label>
+						<label for="r_answ_p04_4e"> <span id="splabel_answ_p04_4e">Antw 04-4 P</span>
+							<input type="radio" id="r_answ_p04_4e" name="answ_p04e" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+    
+  </div>
+  
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz03p" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qz05p" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+  </div>
+
+</div>		<!-- qzo4p  --> 
+ 
+
+ 
+ 
+ 
+
+ <!--  Q Seite 5 P                            --> 
+ 
+ <div data-role="page" id="qz05p" data-title="HAMI Quiz (5/5)">
+    <div data-role="header">
+		<h1>HAMI Quiz</h1>
+	</div>
+	<div data-role="navbar">
+		<ul>
+        <li><a href="#home" data-icon="home">Home</a></li>
+        <li><a href="#kontakt" data-icon="star"><span id="bt_kontakt">Kontakt</span></a></li>
+		</ul>
+	</div>
+  
+  <div data-role="content">
+  	<p>Quiz Seite 5 Process</p>
+    	
+    	<span>Q Page 5 PPPP  </span>		
+					
+		<!-- de-version page 5 --> 
+
+		<div id="q5pd">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp05d"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p05_1d"> <span id="splabel_answ_p05_1d">Antw 05-1 P</span>
+							<input type="radio" id="r_answ_p05_1d" name="answ_p05d" />
+						</label>
+						<label for="r_answ_p05_2d"> <span id="splabel_answ_p05_2d">Antw 05-2 P</span>
+							<input type="radio" id="r_answ_p05_2d" name="answ_p05d" />
+						</label>
+						<label for="r_answ_p05_3d"> <span id="splabel_answ_p05_3d">Antw 05-3 P</span>
+							<input type="radio" id="r_answ_p05_3d" name="answ_p05d" />
+						</label>
+						<label for="r_answ_p05_4d"> <span id="splabel_answ_p05_4d">Antw 05-4 P</span>
+							<input type="radio" id="r_answ_p05_4d" name="answ_p05d" />
+						</label>
+
+				</div>
+			</fieldset>
+		</div> 
+
+		<!-- en-version page 5 --> 
+
+		<div id="q5pe">	
+			<fieldset data-role="controlgroup">
+
+				<div class="input-wrapper">
+					<textarea readonly="readonly" cols="40" rows="8" name="textarea" id="questp05e"></textarea>
+				</div>		
+		
+				<div class="input-wrapper">
+						<label for="r_answ_p05_1e"> <span id="splabel_answ_p05_1e">Antw 05-1 P</span>
+							<input type="radio" id="r_answ_p05_1e" name="answ_p05e" />
+						</label>
+						<label for="r_answ_p05_2e"> <span id="splabel_answ_p05_2e">Antw 05-2 P</span>
+							<input type="radio" id="r_answ_p05_2e" name="answ_p05e" />
+						</label>
+						<label for="r_answ_p05_3e"> <span id="splabel_answ_p05_3e">Antw 05-3 P</span>
+							<input type="radio" id="r_answ_p05_3e" name="answ_p05e" />
+						</label>
+						<label for="r_answ_p05_4e"> <span id="splabel_answ_p05_4e">Antw 05-4 P</span>
+							<input type="radio" id="r_answ_p05_4e" name="answ_p05e" />
+						</label>
+				</div>
+				
+			</fieldset>
+		</div> 		
+		
+    
+  </div>
+  
+  <div data-role="footer" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#qz04p" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#qzsendguess" data-icon="arrow-r"><span class="bt_next">weiter</span></a></li>		  
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+  </div>
+</div>		<!-- qzo5p  --> 
+
+
+
+
+
+
+
+
+
+
+
+<!-- Process Quiz   page 1 ... 5 ends here  -->
+<!-- #####################################  -->
+<!-- #####################################  -->
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ <!-- ehem. Kontaktseite == Send-Guess  140701 --> 
+ <!--  Q Seite Send Guess                            -->
+ 
+ <div data-role="page" id="qzsendguess">
+		
+ 
+        <script type="text/javascript">
+		$('#qzsendguess').on('pageinit', function() {
+		
+					
+			$('input[name=my_antw1]').val('0');
+			$('input[name=my_antw2]').val('0');
+			$('input[name=my_antw3]').val('0');
+			$('input[name=my_antw4]').val('0');
+			$('input[name=my_antw5]').val('0');
+
+
+			// nur für Qz-type = F
+
+			if ($("#my_language").val() == "D") {
+
+				// alert($("#my_language").val());				
+						
+				if ($("#r_answ_f01_1d").is(":checked")) {$('input[name=my_antw1]').val('1');}
+				if ($("#r_answ_f01_2d").is(":checked")) {$('input[name=my_antw1]').val('2');}
+				if ($("#r_answ_f01_3d").is(":checked")) {$('input[name=my_antw1]').val('3');}
+				if ($("#r_answ_f01_4d").is(":checked")) {$('input[name=my_antw1]').val('4');}
+				
+				if ($("#r_answ_f02_1d").is(":checked")) {$('input[name=my_antw2]').val('1');}
+				if ($("#r_answ_f02_2d").is(":checked")) {$('input[name=my_antw2]').val('2');}
+				if ($("#r_answ_f02_3d").is(":checked")) {$('input[name=my_antw2]').val('3');}
+				if ($("#r_answ_f02_4d").is(":checked")) {$('input[name=my_antw2]').val('4');}
+								
+				if ($("#r_answ_f03_1d").is(":checked")) {$('input[name=my_antw3]').val('1');}
+				if ($("#r_answ_f03_2d").is(":checked")) {$('input[name=my_antw3]').val('2');}
+				if ($("#r_answ_f03_3d").is(":checked")) {$('input[name=my_antw3]').val('3');}
+				if ($("#r_answ_f03_4d").is(":checked")) {$('input[name=my_antw3]').val('4');}				
+				
+				if ($("#r_answ_f04_1d").is(":checked")) {$('input[name=my_antw4]').val('1');}
+				if ($("#r_answ_f04_2d").is(":checked")) {$('input[name=my_antw4]').val('2');}
+				if ($("#r_answ_f04_3d").is(":checked")) {$('input[name=my_antw4]').val('3');}
+				if ($("#r_answ_f04_4d").is(":checked")) {$('input[name=my_antw4]').val('4');}
+
+				if ($("#r_answ_f05_1d").is(":checked")) {$('input[name=my_antw5]').val('1');}
+				if ($("#r_answ_f05_2d").is(":checked")) {$('input[name=my_antw5]').val('2');}
+				if ($("#r_answ_f05_3d").is(":checked")) {$('input[name=my_antw5]').val('3');}
+				if ($("#r_answ_f05_4d").is(":checked")) {$('input[name=my_antw5]').val('4');}
+				
+			}	// Ende Sprache = "D"     if ($("#my_language").val() == "D") {
+
+			
+			if ($("#my_language").val() == "E") {
+
+				// alert($("#my_language").val());				
+						
+				if ($("#r_answ_f01_1e").is(":checked")) {$('input[name=my_antw1]').val('1');}
+				if ($("#r_answ_f01_2e").is(":checked")) {$('input[name=my_antw1]').val('2');}
+				if ($("#r_answ_f01_3e").is(":checked")) {$('input[name=my_antw1]').val('3');}
+				if ($("#r_answ_f01_4e").is(":checked")) {$('input[name=my_antw1]').val('4');}
+				
+				if ($("#r_answ_f02_1e").is(":checked")) {$('input[name=my_antw2]').val('1');}
+				if ($("#r_answ_f02_2e").is(":checked")) {$('input[name=my_antw2]').val('2');}
+				if ($("#r_answ_f02_3e").is(":checked")) {$('input[name=my_antw2]').val('3');}
+				if ($("#r_answ_f02_4e").is(":checked")) {$('input[name=my_antw2]').val('4');}
+								
+				if ($("#r_answ_f03_1e").is(":checked")) {$('input[name=my_antw3]').val('1');}
+				if ($("#r_answ_f03_2e").is(":checked")) {$('input[name=my_antw3]').val('2');}
+				if ($("#r_answ_f03_3e").is(":checked")) {$('input[name=my_antw3]').val('3');}
+				if ($("#r_answ_f03_4e").is(":checked")) {$('input[name=my_antw3]').val('4');}				
+				
+				if ($("#r_answ_f04_1e").is(":checked")) {$('input[name=my_antw4]').val('1');}
+				if ($("#r_answ_f04_2e").is(":checked")) {$('input[name=my_antw4]').val('2');}
+				if ($("#r_answ_f04_3e").is(":checked")) {$('input[name=my_antw4]').val('3');}
+				if ($("#r_answ_f04_4e").is(":checked")) {$('input[name=my_antw4]').val('4');}
+
+				if ($("#r_answ_f05_1e").is(":checked")) {$('input[name=my_antw5]').val('1');}
+				if ($("#r_answ_f05_2e").is(":checked")) {$('input[name=my_antw5]').val('2');}
+				if ($("#r_answ_f05_3e").is(":checked")) {$('input[name=my_antw5]').val('3');}
+				if ($("#r_answ_f05_4e").is(":checked")) {$('input[name=my_antw5]').val('4');}
+				
+			}	// Ende Sprache = "E"     if ($("#my_language").val() == "E") {
+			
+			
+		}); 
+		</script>
+
+ 
+ 
+    <div data-role="header">
+		<h1>Aufl&ouml;sung - Kontaktseite</h1>
+	</div>
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#kontakt"><span id="bt_kontakt">Kontakt</span></a></li>
+		</ul>
+	</div>
+  
+  
+    	
+    	<?php 
+			$givenanswers = "23122";
+		?>
+		
+		<br>
+		<div id="logobild" style="width:90%; margin-left:5%;">				
+				<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="mobi_8_f168-140___02_970x185.jpg" />
+		</div>
+		<br></br>
+
+		
+		
+		<div data-role="content">
+		
+		
+		
+				<script type="text/javascript">
+					$(document).ready(function(){
+
+
+						$('#checkbox-store').change(function () {
+							// alert("huhu hello world!");
+
+							if ($("#checkbox-store").is(":checked")) {
+								// alert("checked");
+								$('.ww_submit').removeClass('ui-disabled');
+								$('.ww_submit').addClass('ui-enabled');
+							} else {
+								$('.ww_submit').removeClass('ui-enabled');
+								$('.ww_submit').addClass('ui-disabled');
+							}
+							  
+							  
+						
+						});
+					});
+
+				</script>
+		
+		
+		    <p>Quiz Seite 6 Factory Aufloesung</p>
+		
+		
+					
+		
+		
+            <form id="callAjaxForm">
+                <div data-role="fieldcontain">
+				
+
+				
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName" value=""  />
+ 
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" value=""  />
+
+                    <label for="companyname">Company</label>
+                    <input type="text" name="companyname" id="companyname" value=""  />
+
+                    <label for="emailadr">Email</label>
+                    <input type="text" name="emailadr" id="emailadr" value=""  />
+
+					<p></p>
+					<p> Allow us to store this data in order to send the evaluation of the quiz </p>	
+					<input type="checkbox" name="checkbox-store" id="checkbox-store" class="cb_agree" />
+					<label for="checkbox-store">I agree</label>
+
+					<p> Allow us to get in touch with you for marketing purposes </p>	
+					<input type="checkbox" name="checkbox-marketing" id="checkbox-marketing" class="custom" />
+					<label for="checkbox-marketing">I agree</label>					
+					
+					
+					<!-- 140714 --> 		
+					<input name="my_language" id="my_language" value="D" type="text" />
+					<input name="my_qtype" id="my_qtype" value="F" type="text" />
+					<input name="my_antw1" id="my_antw1" value="" type="text" />
+					<input name="my_antw2" id="my_antw2" value="" type="text" />
+					<input name="my_antw3" id="my_antw3" value="" type="text" />
+					<input name="my_antw4" id="my_antw4" value="" type="text" />
+					<input name="my_antw5" id="my_antw5" value="" type="text" />
+					
+
+					
+					<input type="hidden" name="answercode" value="<?php echo $givenanswers;?>" />
+								
+					
+                    <h3 id="qznotification"></h3>
+					<!--
+                    <button data-theme="b" id="qzsubmit" type="submit" class="ww_submit" disabled>Submit</button>
+					-->
+					
+					
+
+				
+				
+					
+                </div>
+            </form>
+        </div>	
+		
+		
+		
+		
+    
+      <div data-role="footer" data-position="fixed">
+	   <div data-role="navbar">
+		<ul>
+		  <li><a href="#qz05f" data-icon="arrow-l"><span class="bt_prev">zur&uuml;eck</span></a></li>
+		  <!--  <li id="bt_sendguess"><a href="#" class="ww_submit ui-disabled" data-icon="check"><span id="sp_bt_sendguess">absenden</span></a></li>			    -->
+		  <li id="bt_sendguess"><a href="#confirm" class="ww_submit ui-disabled" data-icon="check"><span id="sp_bt_sendguess">absenden</span></a></li>
+		  
+		</ul>
+	   </div>
+	  <h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+      </div>
+  
+  
+  
+  
+  </div>		<!-- qzsendguess  --> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ <div data-role="page" id="confirm">
+ 
+ 	<script type="text/javascript">
+		$('#confirm').on('pageinit', function() {		
+	
+			// $('#this_email').text("Heeeehheeee");	
+					
+			$('#this_email').text = $('#emailadr').text; 
+
+		}); 
+	</script>
+
+ 
+ 
+  <div data-role="header"><h1>HAMI Quiz</h1></div>
+  <div data-role="navbar">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+  <div data-role="content">
+  
+    <div class="text-center">
+    	<h1 style="text-align:center;">Best&auml;tigung</h1>
+    </div>
+
+  
+  
+	
+		<div id="logobild" style="width:90%; margin-left:5%;">				
+			<img style="display:block; width: 100%; max-width: 100%;height: auto;" id="firstimage" src="mobi_7_p2b_970x370b.jpg" />
+		</div>
+
+	<br>
+	
+    <div data-role="fieldcontain">
+    
+	<p>Danke, dass Sie unserem kleinen Quiz teilgenommen haben.</p>
+	<p>Die Aufl&ouml;sung des Quiz und Ihr pers&ouml;nliches Ergebnis erfahren Sie per E-Mail, die wir an diese Adresse geschickt haben: xxxxxxxxxxxxx.</p>
+	<span id="this_email">weissnet</span>
+	
+    </div>
+  </div>
+  
+  
+  <div data-role="footer"data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+		  <li><a href="#confirm" data-icon="arrow-l"><span class="ui-disabled bt_prev">zur&uuml;eck</span></a></li>
+		  <li><a href="#confirm" data-icon="arrow-r"><span class="ui-disabled bt_next">weiter</span></a></li>
+		  <!-- <li id="bt_sendguess"><a href="#" class="ww_submit ui-disabled" data-icon="check"><span id="sp_bt_sendguess">absenden</span></a></li>			    -->
+		</ul>
+	</div>
+	<h3>HAMI - better safe than sorry</h3>
+  </div>
+</div>	<!-- confirm  --> 
+ 
 
 
 
@@ -1201,31 +2403,161 @@ $(document).ready(function() {
  
  
 <div data-role="page" id="kontakt">
+
+   <!-- 150303 --> 
+
+
   <div data-role="header"><h1>Kontaktseite</h1></div>
   <div data-role="navbar">
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#home" data-icon="home">Home</a></li>		
+		
+		<div id="kont_01">
+			<li><a href="#kontakt" data-icon="star" class="ui-disabled"><span id="bt_kontakt_k">Kontakt</span></a></li>
+		</div>
+
+		
+		
+		
     </ul>
   </div>
   <div data-role="content">
-  	<p>Kontaktinformationen</p>
+  
+	<div id="kont_02d">
+		<p>Bitte schicken Sie uns hier Ihre Nachricht.</p>
+		<p>Wir freuen uns &uuml;ber ihre Mitteilung.</p>
+	</div>
+	<div id="kont_02e">
+		<p>Please send us your message here.</p>
+		<p>We would be pleased to receive your note.</p>
+	</div>
+	
     <div data-role="fieldcontain">
-    	<form action="form.php" method="post">
-        <label for="name">Namen eingeben:</label>
+	
+    	<form id="contactform">
+		
+		<div data-role="fieldcontain">
+        <label for="name">Name:</label>
     	<input type="text" name="name" id="name" value=""  />
+		</div>
  
-        <label for="email">E-Mail eingeben:</label>
+		<div data-role="fieldcontain">
+        <label for="email">E-Mail:</label>
     	<input type="email" name="email" id="email" value=""  />
+		</div>
  
-        <label for="textarea">Nachricht:</label>
-		<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+		<div data-role="fieldcontain">
+		
+        <!-- <label for="conmessage">Nachricht:</label>  -->
+		<label for="conmessage">
+			<div id="kont_03d">
+				Nachricht:
+			</div>	
+			<div id="kont_03e">
+				Message:
+			</div>					
+		</label>	
+		
+		<!--  <textarea name="conmessage" id="conmessage" placeholder="Please type your message" required="required" cols="40" rows="8" maxlength="1000" style="height:600px"></textarea> -->
+		<textarea name="conmessage" id="conmessage" 	required="required" cols="40" rows="8" maxlength="1000" style="height:600px"></textarea>
+		</div>
+	
+		<!-- das war mal so 
+		<input type="submit" name="sendcontactmessage" id="sendcontactmessage" value="Send Email">
+		--> 
+ 
+		<h3 id="contactnotification"></h3>
+ 
  
         </form>
     </div>
   </div>
-  <div data-role="footer"><h3>Footer der Seite</h3></div>
-</div>
+  
+       <div data-role="footer" data-position="fixed">
+	   <div data-role="navbar">
+		<ul>
+		  <li><a href="#home" data-icon="back"><span class="bt_cancel">Abbruch</span></a></li>
+		  <!--  <li id="bt_sendguess"><a href="#" class="ww_submit ui-disabled" data-icon="check"><span id="sp_bt_sendguess">absenden</span></a></li>			    -->
+		  <li id="bt_send_contact"><a href="#confirm_contact" class="ww_submit" data-icon="check"><span id="sp_bt_send_contact">Nachricht senden</span></a></li>
+		  
+		</ul>
+	   </div>
+	  <h3>HAMI - better safe than sorry</h3> <!-- nur Kommentar --> 
+      </div>
+  
+  
+</div>			<!-- Kontakt --> 
+
+
+
+
+
+
+
+
+
+ 
+ 
+<!-- reset der (evtl. zuvor) eingegebenen Antworten --> 
+
+  	<script type="text/javascript">
+		$('#home').on('pageinit', function() {
+				$('input:radio[name="answ_f01d"]').removeAttr('checked');
+				$('input:radio[name="answ_f02d"]').removeAttr('checked');
+				$('input:radio[name="answ_f03d"]').removeAttr('checked');
+				$('input:radio[name="answ_f04d"]').removeAttr('checked');
+				$('input:radio[name="answ_f05d"]').removeAttr('checked');
+				$('input:radio[name="answ_f01e"]').removeAttr('checked');
+				$('input:radio[name="answ_f02e"]').removeAttr('checked');
+				$('input:radio[name="answ_f03e"]').removeAttr('checked');
+				$('input:radio[name="answ_f04e"]').removeAttr('checked');
+				$('input:radio[name="answ_f05e"]').removeAttr('checked');
+				
+				$('input:radio[name="answ_p01d"]').removeAttr('checked');
+				$('input:radio[name="answ_p02d"]').removeAttr('checked');
+				$('input:radio[name="answ_p03d"]').removeAttr('checked');
+				$('input:radio[name="answ_p04d"]').removeAttr('checked');
+				$('input:radio[name="answ_p05d"]').removeAttr('checked');
+				$('input:radio[name="answ_p01e"]').removeAttr('checked');
+				$('input:radio[name="answ_p02e"]').removeAttr('checked');
+				$('input:radio[name="answ_p03e"]').removeAttr('checked');
+				$('input:radio[name="answ_p04e"]').removeAttr('checked');
+				$('input:radio[name="answ_p05e"]').removeAttr('checked');
+				
+				
+		}); 
+		
+		
+		
+		
+		
+		
+	</script> 
+	
+	<!-- wird benötigt zum trennen de- en- Sprache , eigentlich nur beim browser reload   --> 
+	
+	<script type="text/javascript">
+		
+		$(function () {
+		
+			// alert ("kontakt init: " + $("#my_language").val() );
+		
+
+
+			if ($("#my_language").val() == "D") {								
+				$("#kont_02d").show();
+				$("#kont_02e").hide();		
+				$("#kont_03d").show();
+				$("#kont_03e").hide();
+			} else {			
+				$("#kont_02d").hide();
+				$("#kont_02e").show();		
+				$("#kont_03d").hide();
+				$("#kont_03e").show();
+			}		
+		
+		}); 
+	</script>
  
 </body>
 </html>

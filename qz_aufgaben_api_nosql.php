@@ -114,7 +114,7 @@
  // 
  
 
-for ($ii = 0; $ii <= 9; $ii++) {
+for ($ii = 0; $ii <= 18; $ii++) {
     $reco[ii]=' ';  
 	}
  
@@ -199,8 +199,82 @@ $reco[9] = $reco[9] . 'to carry out a prototype type test.' . '~' ;
 $reco[9] = $reco[9] . 'to involve a European listed notified body.' . '~' ;
 $reco[9] = $reco[9] . 'for the distributor to carry out a documented self assessment.' . '~' ;
 $reco[9] = $reco[9] . 'that the GS mark is attached.' . '~' ;
+
+
+// Process Quiz starts here 
+
+$reco[10] = '1' . '~' . 'D' . '~' . 'HIMA_FSCS_P' . '~' ;
+$reco[10] = $reco[10] . 'Durch welche beiden Hauptkomponenten wird ein Risiko charakterisiert?' . '~' ;
+$reco[10] = $reco[10] . 'H&auml;ufigkeit des Auftretens und Ausma&szlig; der Folgen' . '~' ;
+$reco[10] = $reco[10] . 'Ausma&szlig; der Folgen und Dauer des Schadens' . '~' ;
+$reco[10] = $reco[10] . 'H&auml;ufigkeit des Auftretens und sichere Entfernung zum Schaden' . '~' ;
+$reco[10] = $reco[10] . 'Ausma&szlig; der Folgen und sichere Entfernung zum Schaden' . '~' ;
+
+$reco[11] = '1' . '~' . 'E' . '~' . 'HIMA_FSCS_P' . '~' ; 
+$reco[11] = $reco[11] . 'What are the two main components of risk?' . '~' ;
+$reco[11] = $reco[11] . 'Frequency of occurrence &amp; magnitude of consequences' . '~' ;
+$reco[11] = $reco[11] . 'Magnitude of consequences &amp; duration of harm' . '~' ;
+$reco[11] = $reco[11] . 'Frequency of occurrence &amp; safe distance from harm' . '~' ;
+$reco[11] = $reco[11] . 'Magnitude of consequences &amp; safe distance from harm' . '~' ;
+
+$reco[12] = '2' . '~' . 'D' . '~' . 'HIMA_FSCS_P' . '~' ;
+$reco[12] = $reco[12] . 'Auf welche Weise erfolgt i.d.R. die Verringerung von Risiken durch ein mit Sicherheitsinstrumenten ausgestattetes System?' . '~' ;
+$reco[12] = $reco[12] . 'Es entspricht den Anforderungen des Managements' . '~' ;
+$reco[12] = $reco[12] . 'Es begrenzt das Ausma&szlig; von Sch&auml;den' . '~' ;
+$reco[12] = $reco[12] . 'Es entspricht gesetzlichen Vorschriften' . '~' ;
+$reco[12] = $reco[12] . 'Es verringert die Wahrscheinlichkeit des Auftretens von SchÇÏden' . '~' ;
+
+$reco[13] = '2' . '~' . 'E' . '~' . 'HIMA_FSCS_P' . '~' ; 
+$reco[13] = $reco[13] . 'How does a Safety Instrumented System most typically reduce risk?' . '~' ;
+$reco[13] = $reco[13] . 'It satisfies managerial requirements' . '~' ;
+$reco[13] = $reco[13] . 'It reduces the magnitude of harm' . '~' ;
+$reco[13] = $reco[13] . 'It satisfies legal requirements' . '~' ;
+$reco[13] = $reco[13] . 'It reduces the likelihood of harm' . '~' ;
+
+$reco[14] = '3' . '~' . 'D' . '~' . 'HIMA_FSCS_P' . '~' ;
+$reco[14] = $reco[14] . 'Markov-Modelle sind ein analytisches Verfahren, das eingesetzt wird zur ...' . '~' ;
+$reco[14] = $reco[14] . 'Berechnung der Wahrscheinlichkeit eines bestimmten Verhaltens von Systemen' . '~' ;
+$reco[14] = $reco[14] . 'Einsch&auml;tzung des SIL-Niveaus einer Gefahr' . '~' ;
+$reco[14] = $reco[14] . 'Berechnung der Verf&uuml;gbarkeit' . '~' ;
+$reco[14] = $reco[14] . 'Berechnung der anteiligen Sicherheit bei einem Funktionsfehler eines Instruments' . '~' ;
+
+$reco[15] = '3' . '~' . 'E' . '~' . 'HIMA_FSCS_P' . '~' ; 
+$reco[15] = $reco[15] . 'Markov models are an analysis technique used to ...' . '~' ;
+$reco[15] = $reco[15] . 'calculate probability of systems behavior' . '~' ;
+$reco[15] = $reco[15] . 'estimate SIL level of a hazard' . '~' ;
+$reco[15] = $reco[15] . 'calculate availability' . '~' ;
+$reco[15] = $reco[15] . 'calculate safe failure fraction of an instrument' . '~' ;
+
+$reco[16] = '4' . '~' . 'D' . '~' . 'HIMA_FSCS_P' . '~' ;
+$reco[16] = $reco[16] . 'Welches der folgenden Beispiele d&uuml;rfte im Rahmen von funktionalen Sicherheits&uuml;berlegungen am wenigsten Ber&uuml;cksichtigung finden?' . '~' ;
+$reco[16] = $reco[16] . 'Ein Arbeiter, der sich in Folge des Ausrutschens auf nassem Boden verletzt' . '~' ;
+$reco[16] = $reco[16] . 'Ein Arbeiter, der sich beim Betreiben einer Blechstanzpresse verletzt' . '~' ;
+$reco[16] = $reco[16] . 'Ein Arbeiter, der bei einer Explosion in einem chemischen Reaktor get&ouml;tet wird' . '~' ;
+$reco[16] = $reco[16] . 'Ein Anwohner, der durch die Freisetzung von Schadstoffen einer verfahrenstechnischen Anlage erkrankt' . '~' ;
+
+$reco[16] = '4' . '~' . 'E' . '~' . 'HIMA_FSCS_P' . '~' ; 
+$reco[16] = $reco[16] . 'Which of the following items is the least likely to be a consideration for functional safety?' . '~' ;
+$reco[16] = $reco[16] . 'A worker becoming injured slipping on a wet floor' . '~' ;
+$reco[16] = $reco[16] . 'A worker getting hurt operating a sheet metal stamp press' . '~' ;
+$reco[16] = $reco[16] . 'A worker getting killed in a chemical reactor explosion' . '~' ;
+$reco[16] = $reco[16] . 'A local resident becoming ill from a process plant environmental release' . '~' ;
+
+$reco[17] = '5' . '~' . 'D' . '~' . 'HIMA_FSCS_P' . '~' ;
+$reco[17] = $reco[17] . 'Welchem Zweck dient die Dokumentation?' . '~' ;
+$reco[17] = $reco[17] . 'Der effektiven Ausf&uuml;hrung der Phasen des Sicherheitslebenszyklus' . '~' ;
+$reco[17] = $reco[17] . 'Der Erf&uuml;llung der Normen' . '~' ;
+$reco[17] = $reco[17] . 'Die erste und die vierte Antwort sind richtig' . '~' ;
+$reco[17] = $reco[17] . 'Der Unterst&uuml;tzung der Aufgaben im Rahmen der Bewertung der funktionalen Sicherheit' . '~' ;
+
+$reco[17] = '5' . '~' . 'E' . '~' . 'HIMA_FSCS_P' . '~' ; 
+$reco[17] = $reco[17] . 'What is the purpose of documentation?' . '~' ;
+$reco[17] = $reco[17] . 'To effectively perform the phases of the safety lifecycle' . '~' ;
+$reco[17] = $reco[17] . 'To satisfy the standards' . '~' ;
+$reco[17] = $reco[17] . 'Both, the 1st and the 4th answer are true' . '~' ;
+$reco[17] = $reco[17] . 'To support the functional safety assessment tasks' . '~' ;
+
  
-for ($ii = 0; $ii <= 9; $ii++) {
+for ($ii = 0; $ii <= 18; $ii++) {
     $reco[ii]=str_replace('<br>',' ',$reco[ii]);  
 	$reco[ii]=str_replace('<br/>',' ',$reco[ii]);
   
