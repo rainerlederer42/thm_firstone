@@ -990,7 +990,7 @@ $(document).ready(function() {
 	<!--  Intermezzo Ausflug Prototyping autocomplete   vvvvvvvvvvvvvvvvv  --> 
 	
 	<form action="search.php">
-	    <input type="text" id="acsearch" name="acsearch" /> <input type="submit" name="acsubmit" value="Suchen 140620a" />
+	    <input type="text" id="acsearch" name="acsearch" /> <input type="submit" name="acsubmit" value="Suchen 140620a ---150510!!!" />
 	</form>
 	<div id="acresults"></div>
 	
